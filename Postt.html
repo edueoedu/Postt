@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Postt</title>
+	<link rel="stylesheet" href="css/postt.css">
+</head>
+<body onload="logar()">
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="app">
+  <div id="centro">
+    <input type="text" placeholder="O que há ?" v-model="input" v-on:keyup.enter="postar()">
+    <button id="btn" v-on:click="postar"> Post</button>
+  </div>
+
+
+  <div id="container">
+    <div id="element" v-for="post in postt">
+      <div id="coluna">
+        <img class="relogio" id="img" src="icon.png">
+        </div>
+        <div id="user">
+        <p class="relogio">{{post.user}}</p>
+      <p id="po" class="relogio">{{post.text}}</p>
+        
+      <p class="relogio">{{post.data}}</p>
+      </div>
+    </div>
+
+ </div>
+ <br>
+</div>
+</body>
+<script type="text/javascript">
+	var generate = new Vue({
+    el: '#app',
+    data: {
+    input:"",
+    postt:[
+      
+    ]
+   },
+  
+  methods:{
+    postar: function postar(){
+        var data = new Date().toLocaleString();
+      var post={
+        data, 
+        text:generate.input
+        ,user
+       };
+       generate.postt.push(post);
+    }
+  }
+});
+
+var user = "";
+    function logar(){
+      while (user == ""){
+        user = prompt("Crie o seu nome de usuário");
+      }
+    }
+</script>
+
+</html>
